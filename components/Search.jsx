@@ -7,12 +7,17 @@ const Search = ({ countries }) => {
   const dispatch = useDispatch()
 
   const handleChange = (e) => {
-    dispatch(getSearch(e.target.value.toLowerCase()))
+    dispatch(getSearch(e.target.value.toLowerCase().trim()))
   }
 
   return (
     <section className={styles.section}>
-      <p className={styles.found}>Found {countries.length} countries</p>
+      <p className={styles.found}>
+        Found {countries.length}{' '}
+        {countries.length > 1 || countries.length === 0
+          ? 'countries'
+          : 'country'}
+      </p>
       <div className={styles.wrapper}>
         <GoSearch className={styles.icon} />
         <input

@@ -1,4 +1,3 @@
-import styles from '../styles/Home.module.css'
 import { useSelector } from 'react-redux'
 import Layout from '../components/Layout'
 import Search from '../components/Search'
@@ -9,15 +8,13 @@ const Home = ({ countries }) => {
 
   const filteredCountries = countries.filter(
     (country) =>
-      /* if (searchQuery) {
-      return country.name.common.toLowerCase().includes(searchQuery)
-    }
-    return countries */
       country.name.common.toLowerCase().includes(searchQuery) ||
       country.region.toLowerCase().includes(searchQuery) ||
       country.subregion?.toLowerCase().includes(searchQuery)
   )
+
   console.log(filteredCountries)
+
   return (
     <Layout>
       <Search countries={filteredCountries} />

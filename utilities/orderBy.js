@@ -1,29 +1,30 @@
+import { ASC, DESC, NAME, GINI } from './constants'
 import { getGini } from './getGini'
 
 export const orderBy = (countries, value, direction) => {
-  if (value === 'name') {
-    if (direction === 'asc') {
+  if (value === NAME) {
+    if (direction === ASC) {
       return [...countries].sort((a, b) =>
         a[value].common > b[value].common ? 1 : -1
       )
     }
-    if (direction === 'desc') {
+    if (direction === DESC) {
       return [...countries].sort((a, b) =>
         a[value].common > b[value].common ? -1 : 1
       )
     }
-  } else if (value === 'gini') {
-    if (direction === 'asc') {
+  } else if (value === GINI) {
+    if (direction === ASC) {
       return [...countries].sort((a, b) => (getGini(a) > getGini(b) ? 1 : -1))
     }
-    if (direction === 'desc') {
+    if (direction === DESC) {
       return [...countries].sort((a, b) => (getGini(a) > getGini(b) ? -1 : 1))
     }
   } else {
-    if (direction === 'asc') {
+    if (direction === ASC) {
       return [...countries].sort((a, b) => (a[value] > b[value] ? 1 : -1))
     }
-    if (direction === 'desc') {
+    if (direction === DESC) {
       return [...countries].sort((a, b) => (a[value] > b[value] ? -1 : 1))
     }
   }

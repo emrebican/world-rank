@@ -22,6 +22,10 @@
   --box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+[data-theme='dark'] {
+  --bg-default: #252329;
+}
+
 html,
 body {
   padding: 0;
