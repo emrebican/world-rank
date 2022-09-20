@@ -7,7 +7,7 @@
   --text-secondary: #b9c9d1;
   --text-dark: #124a63;
   --text-black: #000;
-  --text-333: #3c393f;
+  --text-333: #333;
 
   --bg-default: #f6f6f6;
   --bg-light: #fafafa;
@@ -19,7 +19,7 @@
   --bar-secondary: #21b6b7;
 
   --font-family: 'Poppins', sans-serif;
-  --box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  --box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 [data-theme='dark'] {
@@ -27,6 +27,7 @@
   --bg-white: #3c393f;
   --text-dark: #fff;
   --bg-blue: #3c393f;
+  --text-333: #fff;
 }
 
 html,

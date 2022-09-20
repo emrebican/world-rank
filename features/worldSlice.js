@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { LIGHT, DARK } from '../utilities/constants'
 import { getLocalTheme } from '../utilities/getLocalStorage'
 
 const initialState = {
   searchQuery: '',
-  theme: getLocalTheme === 'dark' ? DARK : LIGHT
+  theme: getLocalTheme
 }
 
 export const worldSlice = createSlice({

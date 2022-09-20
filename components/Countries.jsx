@@ -1,4 +1,5 @@
 import styles from '../styles/Countries.module.css'
+import Link from 'next/link'
 import { useState } from 'react'
 import Country from './Country'
 
@@ -48,7 +49,11 @@ const Countries = ({ countries }) => {
       </div>
       <div className={styles.container}>
         {orderedCountries.map((country, index) => (
-          <Country country={country} key={index} />
+          <Link key={index} href={`/country/${country.cca3}`}>
+            <a>
+              <Country country={country} />
+            </a>
+          </Link>
         ))}
       </div>
     </div>

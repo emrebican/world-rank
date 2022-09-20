@@ -17,21 +17,19 @@
 .light_theme {
   position: absolute;
   left: 1rem;
-  top: 10.5rem;
+  top: 5rem;
   font-size: 1.6rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: var(--text-dark);
 }
 
 .dark_theme {
   position: absolute;
   left: 1rem;
-  top: 10.5rem;
+  top: 5rem;
   font-size: 1.6rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  color: var(--text-primary);
 }

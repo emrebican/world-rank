@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 
 import { toggleTheme } from '../features/worldSlice'
 import { LIGHT, DARK } from '../utilities/constants'
-import { getLocalTheme } from '../utilities/getLocalStorage'
 
 import { MdBrightness6 } from 'react-icons/md'
 
@@ -25,7 +24,7 @@ const ThemeButton = () => {
   }
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', getLocalTheme)
+    document.documentElement.setAttribute('data-theme', theme)
   }, [])
 
   return (
