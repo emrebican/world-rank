@@ -7,7 +7,7 @@
   --text-secondary: #b9c9d1;
   --text-dark: #124a63;
   --text-black: #000;
-  --text-333: #333;
+  --text-333: #3c393f;
 
   --bg-default: #f6f6f6;
   --bg-light: #fafafa;
@@ -24,6 +24,9 @@
 
 [data-theme='dark'] {
   --bg-default: #252329;
+  --bg-white: #3c393f;
+  --text-dark: #fff;
+  --bg-blue: #3c393f;
 }
 
 html,

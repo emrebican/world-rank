@@ -4,6 +4,7 @@
   height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
+  position: relative;
 }
 
 .header {
@@ -11,4 +12,26 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 60px;
+}
+
+.light_theme {
+  position: absolute;
+  left: 1rem;
+  top: 10.5rem;
+  font-size: 1.6rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-dark);
+}
+
+.dark_theme {
+  position: absolute;
+  left: 1rem;
+  top: 10.5rem;
+  font-size: 1.6rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
 }

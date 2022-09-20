@@ -36,7 +36,7 @@ const Progress = ({ progress }) => {
         .number {
           font-size: 12px;
           font-weight: 500;
-          color: #124a63;
+          color: var(--text-dark);
           width: 50px;
         }
       `}</style>
