@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux'
 import Layout from '../components/Layout'
 import Search from '../components/Search'
 import Countries from '../components/Countries'
+import { useEffect } from 'react'
+useEffect
 
 const Home = ({ countries }) => {
   const searchQuery = useSelector((state) => state.world.searchQuery)

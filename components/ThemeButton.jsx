@@ -1,9 +1,12 @@
 import styles from '../styles/Layout.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { toggleTheme } from '../features/worldSlice'
-import { MdBrightness6 } from 'react-icons/md'
+import { useEffect } from 'react'
 
+import { toggleTheme } from '../features/worldSlice'
 import { LIGHT, DARK } from '../utilities/constants'
+import { getLocalTheme } from '../utilities/getLocalStorage'
+
+import { MdBrightness6 } from 'react-icons/md'
 
 const ThemeButton = () => {
   const dispatch = useDispatch()
@@ -13,13 +16,18 @@ const ThemeButton = () => {
     if (theme === LIGHT) {
       dispatch(toggleTheme(DARK))
       document.documentElement.setAttribute('data-theme', DARK)
+      localStorage.setItem('world_theme', JSON.stringify(DARK))
     } else {
       dispatch(toggleTheme(LIGHT))
       document.documentElement.setAttribute('data-theme', LIGHT)
+      localStorage.setItem('world_theme', JSON.stringify(LIGHT))
     }
   }
 
-  console.log(theme)
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', getLocalTheme)
+  }, [])
+
   return (
     <button
       onClick={handleTheme}
