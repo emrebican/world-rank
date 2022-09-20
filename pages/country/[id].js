@@ -2,6 +2,7 @@ import styles from '../../styles/Country.module.css'
 import Image from 'next/image'
 import Layout from '../../components/Layout'
 import Progress from '../../components/Progress'
+import Meta from '../../components/Meta'
 
 import { formatNumber } from '../../utilities/formatNumber'
 import { objectToArray } from '../../utilities/objectToArray'
@@ -13,6 +14,7 @@ const countryDetails = ({ country }) => {
 
   return (
     <Layout>
+      <Meta title={`World Rank | ${country.name.common}`} />
       <div className={styles.container}>
         <div className={styles.leftContent}>
           <Image

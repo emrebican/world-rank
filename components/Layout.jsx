@@ -1,4 +1,5 @@
 import styles from '../styles/Layout.module.css'
+import Link from 'next/link'
 import Meta from './Meta'
 import Footer from './Footer'
 import ThemeButton from './ThemeButton'
@@ -9,7 +10,11 @@ const Layout = ({ children }) => {
       <Meta />
       <ThemeButton />
       <header className={styles.header}>
-        <img src="/Logo.svg" alt="icon" />
+        <Link href="/">
+          <a>
+            <img src="/Logo.svg" alt="icon" />
+          </a>
+        </Link>
       </header>
       <main>{children}</main>
       <Footer />
