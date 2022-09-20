@@ -4,7 +4,6 @@ import Country from './Country'
 
 import { orderBy } from '../utilities/orderBy'
 import { SortArrow } from '../utilities/sortArrow'
-import { getGini } from '../utilities/getGini'
 
 const Countries = ({ countries }) => {
   const [direction, setDirection] = useState()
