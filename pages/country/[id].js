@@ -1,11 +1,16 @@
 import styles from '../../styles/Country.module.css'
 import Image from 'next/image'
 import Layout from '../../components/Layout'
+import Progress from '../../components/Progress'
+
 import { formatNumber } from '../../utilities/formatNumber'
+import { objectToArray } from '../../utilities/objectToArray'
+import { getCurr, getNative, getGini } from '../../utilities/getGini'
 
 const countryDetails = ({ country }) => {
-  console.log(country[0])
   country = country[0]
+  console.log(country)
+
   return (
     <Layout>
       <div className={styles.container}>
@@ -34,6 +39,45 @@ const countryDetails = ({ country }) => {
         </div>
         <div className={styles.rightContent}>
           <h2 className={styles.detail}>Details</h2>
+          <div className={styles.content}>
+            <span className={styles.title}>capital</span>
+            <p className={styles.text}>{country.capital[0]}</p>
+          </div>
+          <div className={styles.content}>
+            <span className={styles.title}>subregion</span>
+            <p className={styles.text}>{country.subregion}</p>
+          </div>
+          <div className={styles.content}>
+            <span className={styles.title}>languages</span>
+            <p className={styles.text}>
+              {objectToArray(country.languages).map((lang, i) => (
+                <span key={i}>{lang + ' '}</span>
+              ))}
+            </p>
+          </div>
+          <div className={styles.content}>
+            <span className={styles.title}>currencies</span>
+            <p className={styles.text}>
+              {objectToArray(getCurr(country)).map((curr, i) => (
+                <span key={i}>{curr + ' '}</span>
+              ))}
+            </p>
+          </div>
+          <div className={styles.content}>
+            <span className={styles.title}>native name</span>
+            <p className={styles.text}>
+              {getNative(country.name.nativeName).common}
+            </p>
+          </div>
+          <div className={styles.content}>
+            <span className={styles.title}>gini</span>
+            <span className={styles.gini}>
+              <Progress progress={getGini(country)} />
+            </span>
+          </div>
+          <div className={styles.last_content}>
+            <span className={styles.title}>neighbouring countries</span>
+          </div>
         </div>
       </div>
     </Layout>
