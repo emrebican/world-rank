@@ -1,0 +1,14 @@
+.container {
+  padding: 35px 0;
+  margin: 0 120px;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+}

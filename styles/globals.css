@@ -1,9 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&family=Poppins:wght@300;500;700&display=swap');
+
+:root {
+  /* --primary-clr: #21b6b7; */
+
+  --text-primary: #b3c5cd;
+  --text-secondary: #b9c9d1;
+  --text-dark: #124a63;
+  --text-black: #000;
+  --text-333: #333;
+
+  --bg-default: #f6f6f6;
+  --bg-light: #fafafa;
+  --bg-dark: #252329;
+  --bg-blue: #eef3f6;
+  --bg-white: #fff;
+
+  --bar-primary: #f2f5f7;
+  --bar-secondary: #21b6b7;
+
+  --font-family: 'Poppins', sans-serif;
+  --box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--font-family);
+  background-color: var(--bg-default);
+  color: var(--text-dark);
 }
 
 a {
@@ -13,14 +38,6 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+  color: inherit;
+  font: inherit;
 }
