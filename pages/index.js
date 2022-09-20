@@ -5,6 +5,7 @@ import Countries from '../components/Countries'
 
 const Home = ({ countries }) => {
   console.log(countries)
+  // const filteredCountries =
   return (
     <Layout>
       <Search countries={countries} />
