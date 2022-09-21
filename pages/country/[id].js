@@ -71,23 +71,17 @@ const CountryDetails = ({ country }) => {
           <div className={styles.content}>
             <span className={styles.title}>languages</span>
             <p className={styles.text}>
-              {
-                objectToArray(country.languages).map((lang, index) => (
-                  <span key={index}>{lang}</span>
-                ))
-                /* .join(', ') */
-              }
+              {objectToArray(country.languages)
+                .map((lang) => lang)
+                .join(', ')}
             </p>
           </div>
           <div className={styles.content}>
             <span className={styles.title}>currencies</span>
             <p className={styles.text}>
-              {
-                objectToArray(getCurr(country)).map((curr, index) => (
-                  <span key={index}>{curr}</span>
-                ))
-                /* .join(' ') */
-              }
+              {objectToArray(getCurr(country))
+                .map((curr) => curr)
+                .join(' ')}
             </p>
           </div>
           <div className={styles.content}>
