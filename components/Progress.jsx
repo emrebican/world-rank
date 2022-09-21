@@ -45,10 +45,3 @@ const Progress = ({ progress }) => {
 }
 
 export default Progress
-
-{
-  /* <S.Wrapper>
-      <S.ProgressBar progress={`${progress}%`} />
-      <S.ProgressNumber>{progress}%</S.ProgressNumber>
-    </S.Wrapper> */
-}
