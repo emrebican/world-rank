@@ -74,3 +74,35 @@
   flex: 1;
   letter-spacing: 0.6px;
 }
+
+@media (max-width: 1000px) {
+  .gini {
+    display: none;
+  }
+  .area {
+    display: none;
+  }
+
+  .row {
+    width: 700px;
+  }
+
+  .container {
+    align-items: center;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+}
+
+@media (max-width: 775px) {
+  .row {
+    width: 400px;
+  }
+  .heading {
+    margin: 0 80px;
+    margin-top: 43px;
+    margin-bottom: 16px;
+  }
+}

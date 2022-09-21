@@ -71,9 +71,9 @@ const countryDetails = ({ country }) => {
           <div className={styles.content}>
             <span className={styles.title}>languages</span>
             <p className={styles.text}>
-              {objectToArray(country.languages).map((lang, i) => (
-                <span key={i}>{lang + ' '}</span>
-              ))}
+              {objectToArray(country.languages)
+                .map((lang) => lang)
+                .join(', ')}
             </p>
           </div>
           <div className={styles.content}>
@@ -101,9 +101,11 @@ const countryDetails = ({ country }) => {
             <div className={styles.borders}>
               {bordersData?.map((border) => (
                 <div className={styles.border_item}>
-                  <img
+                  <Image
                     src={border[0].flags.png}
                     alt="border_flag"
+                    width={78}
+                    height={58}
                     className={styles.border_flag}
                   />
                   <span className={styles.border_name}>
@@ -119,7 +121,7 @@ const countryDetails = ({ country }) => {
   )
 }
 
-export const getStaticPaths = async () => {
+/* export const getStaticPaths = async () => {
   const res = await fetch('https://restcountries.com/v3.1/all')
   const countries = await res.json()
 
@@ -136,6 +138,18 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
+  const country = await getCountry(params.id)
+
+  return {
+    props: {
+      country
+    }
+  }
+} */
+
+export const getServerSideProps = async ({ params }) => {
+  /* const res = await fetch(`https://restcountries.com/v3.1/alpha/${params.id}`)
+  const country = await res.json() */
   const country = await getCountry(params.id)
 
   return {

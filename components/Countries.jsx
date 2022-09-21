@@ -1,6 +1,6 @@
 import styles from '../styles/Countries.module.css'
-import Link from 'next/link'
 import { useState } from 'react'
+import Link from 'next/link'
 import Country from './Country'
 
 import { orderBy } from '../utilities/orderBy'
@@ -38,11 +38,11 @@ const Countries = ({ countries }) => {
           Population
           {value === 'population' && <SortArrow direction={direction} />}
         </button>
-        <button onClick={() => setOrder('area')}>
+        <button onClick={() => setOrder('area')} className={styles.hidden}>
           Area (km)
           {value === 'area' && <SortArrow direction={direction} />}
         </button>
-        <button onClick={() => setOrder('gini')}>
+        <button onClick={() => setOrder('gini')} className={styles.hidden}>
           Gini
           {value === 'gini' && <SortArrow direction={direction} />}
         </button>

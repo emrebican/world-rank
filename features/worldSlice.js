@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getLocalTheme } from '../utilities/getLocalStorage'
-
 const initialState = {
   searchQuery: '',
   theme: getLocalTheme

@@ -1,5 +1,6 @@
 import styles from '../styles/Search.module.css'
 import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 import { getSearch } from '../features/worldSlice'
 import { GoSearch } from 'react-icons/go'
 
@@ -9,6 +10,10 @@ const Search = ({ countries }) => {
   const handleChange = (e) => {
     dispatch(getSearch(e.target.value.toLowerCase().trim()))
   }
+
+  useEffect(() => {
+    dispatch(getSearch(''))
+  }, [])
 
   return (
     <section className={styles.section}>

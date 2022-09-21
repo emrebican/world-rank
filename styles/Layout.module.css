@@ -33,3 +33,18 @@
   border: none;
   cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .light_theme {
+    left: -4rem;
+  }
+  .dark_theme {
+    left: -4rem;
+  }
+}
