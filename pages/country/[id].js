@@ -1,5 +1,7 @@
 import styles from '../../styles/Country.module.css'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
+
 import Layout from '../../components/Layout'
 import Progress from '../../components/Progress'
 import Meta from '../../components/Meta'
@@ -8,9 +10,26 @@ import { formatNumber } from '../../utilities/formatNumber'
 import { objectToArray } from '../../utilities/objectToArray'
 import { getCurr, getNative, getGini } from '../../utilities/getGini'
 
+const getCountry = async (id) => {
+  const res = await fetch(`https://restcountries.com/v3.1/alpha/${id}`)
+  const country = await res.json()
+  return country
+}
+
 const countryDetails = ({ country }) => {
+  const [bordersData, setBordersData] = useState([])
   country = country[0]
-  console.log(country)
+
+  const getBorders = async () => {
+    const borders = await Promise.all(
+      country.borders.map((border) => getCountry(border))
+    )
+    setBordersData(borders)
+  }
+
+  useEffect(() => {
+    getBorders()
+  }, [])
 
   return (
     <Layout>
@@ -79,6 +98,20 @@ const countryDetails = ({ country }) => {
           </div>
           <div className={styles.last_content}>
             <span className={styles.title}>neighbouring countries</span>
+            <div className={styles.borders}>
+              {bordersData?.map((border) => (
+                <div className={styles.border_item}>
+                  <img
+                    src={border[0].flags.png}
+                    alt="border_flag"
+                    className={styles.border_flag}
+                  />
+                  <span className={styles.border_name}>
+                    {border[0].name.common}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -86,9 +119,24 @@ const countryDetails = ({ country }) => {
   )
 }
 
-export const getServerSideProps = async ({ params }) => {
-  const res = await fetch(`https://restcountries.com/v3.1/alpha/${params.id}`)
-  const country = await res.json()
+export const getStaticPaths = async () => {
+  const res = await fetch('https://restcountries.com/v3.1/all')
+  const countries = await res.json()
+
+  const paths = countries.map((country) => {
+    return {
+      params: { id: country.cca3 }
+    }
+  })
+
+  return {
+    paths,
+    fallback: false
+  }
+}
+
+export const getStaticProps = async ({ params }) => {
+  const country = await getCountry(params.id)
 
   return {
     props: {
