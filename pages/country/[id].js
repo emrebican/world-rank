@@ -105,8 +105,8 @@ const CountryDetails = ({ country }) => {
           <div className={styles.last_content}>
             <span className={styles.title}>neighbouring countries</span>
             <div className={styles.borders}>
-              {bordersData?.map((border) => (
-                <div className={styles.border_item}>
+              {bordersData?.map((border, index) => (
+                <div key={index} className={styles.border_item}>
                   <Image
                     src={border[0].flags.png}
                     alt="border_flag"
