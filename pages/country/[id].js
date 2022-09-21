@@ -16,7 +16,7 @@ const getCountry = async (id) => {
   return country
 }
 
-const countryDetails = ({ country }) => {
+const CountryDetails = ({ country }) => {
   const [bordersData, setBordersData] = useState([])
   country = country[0]
 
@@ -79,9 +79,9 @@ const countryDetails = ({ country }) => {
           <div className={styles.content}>
             <span className={styles.title}>currencies</span>
             <p className={styles.text}>
-              {objectToArray(getCurr(country)).map((curr, i) => (
-                <span key={i}>{curr + ' '}</span>
-              ))}
+              {objectToArray(getCurr(country))
+                .map((curr) => curr)
+                .join(' ')}
             </p>
           </div>
           <div className={styles.content}>
@@ -159,4 +159,4 @@ export const getServerSideProps = async ({ params }) => {
   }
 }
 
-export default countryDetails
+export default CountryDetails
