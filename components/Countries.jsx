@@ -48,8 +48,8 @@ const Countries = ({ countries }) => {
         </button>
       </div>
       <div className={styles.container}>
-        {orderedCountries.map((country, index) => (
-          <Link key={index} href={`/country/${country.cca3}`}>
+        {orderedCountries.map((country) => (
+          <Link key={country.cca3} href={`/country/${country.cca3}`}>
             <a>
               <Country country={country} />
             </a>
