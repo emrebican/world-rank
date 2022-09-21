@@ -8,13 +8,8 @@ import Meta from '../../components/Meta'
 
 import { formatNumber } from '../../utilities/formatNumber'
 import { objectToArray } from '../../utilities/objectToArray'
-import { getCurr, getNative, getGini } from '../../utilities/getGini'
-
-const getCountry = async (id) => {
-  const res = await fetch(`https://restcountries.com/v3.1/alpha/${id}`)
-  const country = await res.json()
-  return country
-}
+import { getCurr, getNative, getGini } from '../../utilities/getValue'
+import { getCountry } from '../../utilities/getCountry'
 
 const CountryDetails = ({ country }) => {
   const [bordersData, setBordersData] = useState([])
@@ -121,7 +116,7 @@ const CountryDetails = ({ country }) => {
   )
 }
 
-/* export const getStaticPaths = async () => {
+export const getStaticPaths = async () => {
   const res = await fetch('https://restcountries.com/v3.1/all')
   const countries = await res.json()
 
@@ -138,18 +133,6 @@ const CountryDetails = ({ country }) => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  const country = await getCountry(params.id)
-
-  return {
-    props: {
-      country
-    }
-  }
-} */
-
-export const getServerSideProps = async ({ params }) => {
-  /* const res = await fetch(`https://restcountries.com/v3.1/alpha/${params.id}`)
-  const country = await res.json() */
   const country = await getCountry(params.id)
 
   return {

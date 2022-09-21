@@ -2,7 +2,7 @@ import styles from '../styles/Countries.module.css'
 import Image from 'next/image'
 import Progress from './Progress'
 import { formatNumber } from '../utilities/formatNumber'
-import { getGini } from '../utilities/getGini'
+import { getGini } from '../utilities/getValue'
 
 const Country = ({ country }) => {
   return (

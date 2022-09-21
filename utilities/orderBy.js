@@ -1,5 +1,5 @@
 import { ASC, DESC, NAME, GINI } from './constants'
-import { getGini } from './getGini'
+import { getGini } from './getValue'
 
 export const orderBy = (countries, value, direction) => {
   if (value === NAME) {
