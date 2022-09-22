@@ -15,8 +15,6 @@ const Home = ({ countries }) => {
       country.subregion?.toLowerCase().includes(searchQuery)
   )
 
-  console.log(filteredCountries)
-
   return (
     <Layout>
       <Search countries={filteredCountries} />
